@@ -29,7 +29,7 @@ module Ahoy
             e.visit_id = ahoy.visit_id
             e.user = user if e.respond_to?(:user=)
             e.name = name
-            e.properties = properties
+            e.properties = properties.is_a?(Hash)? properties.to_json : properties
             e.time = options[:time]
           end
 
